@@ -1,0 +1,7 @@
+.DS_Store
+
+# 01_first_env/
+01_first_env/.DS_Store
+01_first_env/.Rprofile
+01_first_env/renv.lock
+01_first_env/renv/
