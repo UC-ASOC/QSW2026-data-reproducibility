@@ -5,3 +5,9 @@
 01_first_env/.Rprofile
 01_first_env/renv.lock
 01_first_env/renv/
+
+# 02_qsw_pipeline
+02_qsw_pipeline/.DS_Store
+02_qsw_pipeline/.Rprofile
+02_qsw_pipeline/renv/
+
