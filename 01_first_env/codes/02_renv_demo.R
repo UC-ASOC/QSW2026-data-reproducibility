@@ -15,7 +15,8 @@ head(CO2)
 # Help pages can be accessed for further clarification
 ?CO2
 
-# Let's load our first package:
+# Let's grab a tool from our toobox.
+# In other words, let's load our first package:
 library(stats)
 
 # Now, calculate the mean miles per gallon (mpg) per car:
@@ -33,15 +34,31 @@ plot(
 
 # Let's install our first package: renv
 install.packages("renv")
-# R might ask if we want to install renv dependencies.
+# R will ask if we want to install renv dependencies.
 # Type "Y" and hit "Enter"
 
-# Creating our first environment
-renv::init()
+# NOTE:
+# We used the function "install.packages()" to install the
+# package "renv". This is the standard way of adding new
+# tools to your toolbox in R.
+#
+# Normally, when you install a package this way, it gets added
+# to your main toolbox, and all your projects will use the same tools.
+#
+# As discussed in the lecture, this can cause problems:
+# different projects might need different versions of the same tool.
+#
+# The "renv" package helps us solve this by giving each project
+# its own separate toolbox, so the tools used in one project
+# don’t interfere with another.
 
-# Let's check our library location again:
-.libPaths()
+# Let's bring renv (our tool) to our "bench":
+library(renv)
 
+# Now, using renv, let's create our first environment:
+init()
+
+# We need to restart for our environment to start working.
 # Restart R using one of the options below:
 # Menu bar > "Session" > "Restart R"
 # Ctrl + Shift + 0 (Windows)
@@ -59,10 +76,15 @@ renv::install("ggplot2")
 # R might ask if we want to install ggplot2 dependencies.
 # Once again, type "Y" and hit "Enter"
 
-# Load the ggplot2 library:
+# NOTE:
+# Did you noticed we used "renv::install()" instead of install.packages()?
+# The original function would still work, but it is better practice to use
+# renv when adding/removing new packages.
+
+# Now, load the ggplot2 package:
 library(ggplot2)
 
-# Let's say what ggplot can do:
+# Let's see what ggplot can do:
 ggplot(CO2, aes(x = conc, y = uptake, color = Treatment)) +
   geom_point(size = 3) +
   facet_wrap(~ Type) +
