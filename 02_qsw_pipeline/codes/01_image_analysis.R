@@ -1,5 +1,17 @@
 ##--##--##--##--#
-##   RECAP   ####
+##   Goals   ####
+##--##--##--##--#
+
+# The goal of this script is to demonstrate reproducibility
+# in an renv-managed project. We use a script that calculates
+# metrics from a TIFF image, as well as imports and exports data.
+#
+# The script is beginner-friendly, but introduces a substantial
+# level of complexity. As a result, the focus is on reproducibility
+# rather than code structure or function design.
+
+##--##--##--##--#
+##   Start   ####
 ##--##--##--##--#
 
 # First, let's confirm that renv is available:
