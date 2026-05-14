@@ -7,8 +7,8 @@
 # metrics from a TIFF image, as well as imports and exports data.
 #
 # The script is beginner-friendly, but introduces a substantial
-# level of complexity. As a result, the focus is on reproducibility
-# rather than code structure or function design.
+# level of complexity. As a result, the focus is on the outcome
+# of the script rather than understanding every single line.
 
 ##--##--##--##--#
 ##   Start   ####
@@ -24,8 +24,11 @@ ifelse(
 # The function above is known as an "if statement". If a condition is met, then R performs
 # a certain action, but if the condition is not met, then it performs another action.
 
-# After confirming that renv is available, let's load it:
-library(renv)
+# [PRO TIP]: We need only a few tools from the renv toolbox. Thus, we will not load the
+# entire renv library in this script, we simply access the specific tools we need.
+# As mentioned in our renv introduction, this is a more professional and clean approach, as
+# we avoid cluterring our workspace with tools we won't need.
+# Whenever we need renv, we will simply use "renv::"
 
 # Now, let's initiate a new environment. However, this time we won't start fresh.
 # We will restore an environment created by someone else. The goal is to simulate
@@ -38,9 +41,9 @@ library(renv)
 # 4: Abort project initialization.
 #
 # We want to restore the project library; thus, type "1" and hit enter.
-init()
+renv::init()
 
-# Restart R using one of the options below:
+# If needed, restart R using one of the options below:
 # Menu bar > "Session" > "Restart R"
 # Ctrl + Shift + 0 (Windows)
 # Command + Shift + 0 (Mac)
@@ -89,8 +92,12 @@ print(summary(as.numeric(cell_sizes)))
 
 # Convert to data frame (necessary for ggplot)
 cell_dataframe <- data.frame(
+  cell_id = paste0("cell_", seq_along(length(cell_sizes))),
   size = as.numeric(cell_sizes)
 )
+
+# Display the first few lines of the dataframe
+head(cell_dataframe)
 
 # Plot with ggplot
 ggplot(cell_dataframe, aes(x = size)) +
@@ -123,7 +130,7 @@ ggsave(
 # FINAL STEPS:
 
 # Verify the project's state:
-status()
+renv::status()
 
 # Snapshot the project's state:
-snapshot()
+renv::snapshot()
