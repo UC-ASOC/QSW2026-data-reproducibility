@@ -14,23 +14,7 @@
 ##   Start   ####
 ##--##--##--##--#
 
-# First, let's confirm that renv is available:
-ifelse(
-  requireNamespace("renv", quietly = TRUE),   # is renv available?
-  "Success! The package is available",        # If true, this is the output
-  "!!WARNING!! THE PACKAGE IS NOT AVAILABLE"  # If false, this is the ouput
-)
-
-# The function above is known as an "if statement". If a condition is met, then R performs
-# a certain action, but if the condition is not met, then it performs another action.
-
-# [PRO TIP]: We need only a few tools from the renv toolbox. Thus, we will not load the
-# entire renv library in this script, we simply access the specific tools we need.
-# As mentioned in our renv introduction, this is a more professional and clean approach, as
-# we avoid cluterring our workspace with tools we won't need.
-# Whenever we need renv, we will simply use "renv::"
-
-# Now, let's initiate a new environment. However, this time we won't start fresh.
+# Let's initiate a new environment; however, this time we won't start fresh.
 # We will restore an environment created by someone else. The goal is to simulate
 # an occasion where you are trying to replicate an environment.
 #
@@ -47,6 +31,19 @@ renv::init()
 # Menu bar > "Session" > "Restart R"
 # Ctrl + Shift + 0 (Windows)
 # Command + Shift + 0 (Mac)
+
+# Note:
+# The project was initialized using the "::" approach,
+# for example: "renv::init()".
+#
+# This is because we only need a few functions from the
+# renv package. As mentioned in our renv introduction,
+# this is often considered a cleaner and more professional
+# approach, since we avoid cluttering the workspace with
+# functions we may not use.
+#
+# Whenever we need a renv function, we can simply call it
+# with the "renv::" prefix.
 
 # Load the packages
 library(EBImage)
@@ -92,7 +89,7 @@ print(summary(as.numeric(cell_sizes)))
 
 # Convert to data frame (necessary for ggplot)
 cell_dataframe <- data.frame(
-  cell_id = paste0("cell_", seq_along(length(cell_sizes))),
+  cell_id = paste0("cell_", seq_along(cell_sizes)),
   size = as.numeric(cell_sizes)
 )
 
