@@ -2,7 +2,10 @@
 ## CHAPTER 1 ####
 ##--##--##--##--#
 
-# Let's check our location in the system:
+# Let's run our first code!
+print("Hello World!")
+
+# Now, check our location in the system:
 getwd()
 
 # [PRO TIP]: Everytime you load a project in RStudio, you will start
@@ -11,7 +14,7 @@ getwd()
 
 # Now, let's explore our session information:
 sessionInfo()
-# What do you see under "Platform", does it match your personal computer?
+# What do you see under "Platform"? Does it match your personal computer?
 
 
 # New packages are added to our library. Where is that library located?
